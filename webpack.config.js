@@ -1,4 +1,5 @@
 const { resolve } = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
   entry: './src/index.js',
@@ -16,7 +17,13 @@ const config = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack4x-Learning',
+      template: resolve(__dirname, 'src', 'index.ejs')
+    })
+  ]
 };
 
 module.exports = config;
